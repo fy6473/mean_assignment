@@ -1,0 +1,26 @@
+<!-- If logged in → show welcome -->
+<app-welcome *ngIf="isLoggedIn"></app-welcome>
+
+<!-- If NOT logged in -->
+<div *ngIf="!isLoggedIn">
+
+  <div class="p-4 space-x-4">
+    <button 
+      class="bg-blue-500 text-white px-4 py-2 rounded"
+      (click)="showLogin = true"
+    >
+      Login
+    </button>
+
+    <button 
+      class="bg-green-500 text-white px-4 py-2 rounded"
+      (click)="showLogin = false"
+    >
+      Register
+    </button>
+  </div>
+
+  <app-login *ngIf="showLogin"></app-login>
+  <app-register *ngIf="!showLogin"></app-register>
+
+</div>
